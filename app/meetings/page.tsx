@@ -2,8 +2,8 @@ import { SacramentMeeting } from '@/lib/types';
 import MeetingCard from '@/components/MeetingCard';
 
 async function getMeetingsFromApi(): Promise<SacramentMeeting[]> {
-  const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
-  const res = await fetch(`${baseUrl}/api/meetings`, { cache: 'no-store' });
+const baseUrl = process.env.NEXT_PUBLIC_API_URL 
+  || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');  const res = await fetch(`${baseUrl}/api/meetings`, { cache: 'no-store' });
 
   if (!res.ok) {
     throw new Error('Failed to fetch meetings from API');
