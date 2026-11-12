@@ -1,6 +1,5 @@
 import { Suspense } from 'react';
 import NavLinks from '@/components/NavLinks';
-
 export default function MeetingsLayout({
   children,
 }: {
